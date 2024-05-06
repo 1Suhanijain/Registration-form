@@ -46,7 +46,7 @@ const RegisterForm = () => {
     setCurrentSection(currentSection - 1);
   };
   const getData = () => {
-    fetch(`http://localhost:8080/studentsData`, {
+    fetch(`https://backend-registrationform-2.onrender.com/studentsData`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -81,7 +81,7 @@ const RegisterForm = () => {
       data.password = password;
 
       setFormData(data);
-      fetch(`http://localhost:8080/student/submit`, {
+      fetch(`https://backend-registrationform-2.onrender.com/student/submit`, {
         method: "POST",
         mode: "cors",
         headers: {

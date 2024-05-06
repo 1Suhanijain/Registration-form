@@ -21,7 +21,7 @@ function Newpassword() {
         newPassword: password,
         email: location?.state?.email,
       };
-      fetch(`http://localhost:8080/resetPassword`, {
+      fetch(`https://backend-registrationform-2.onrender.com/resetPassword`, {
         method: "POST",
         mode: "cors",
         headers: {

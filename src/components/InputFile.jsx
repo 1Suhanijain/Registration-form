@@ -7,7 +7,7 @@ const InputFile = ({setFileUploaded}) => {
   const [fileUrlFront, setFileUrlFront] = useState("");
   const [fileUrlBack, setFileUrlBack] = useState("");
   const baseUrl = "http://localhost:5173/";
-  const uploadEndpoint = "http://localhost:8080/upload";
+  const uploadEndpoint = "https://backend-registrationform-2.onrender.com/upload";
   console.log(fileUrlFront, fileUrlBack, "11");
 
   const handleFileChange = (e) => {

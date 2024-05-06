@@ -36,13 +36,16 @@ function Login() {
       .catch((err) => console.error("Error:", err));
   });
   useEffect(() => {
-    fetch(`http://localhost:8080/student/getHashValue?email=${email}`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://backend-registrationform-2.onrender.com/student/getHashValue?email=${email}`,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
