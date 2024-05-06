@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-const StyledButton = ({ label, onClick, type ,width}) => {
+const StyledButton = ({ label, onClick, type, width, disabled }) => {
   return (
     <Button
       sx={{
@@ -11,12 +11,13 @@ const StyledButton = ({ label, onClick, type ,width}) => {
         fontSize: "16px",
         borderRadius: "10px",
         fontWeight: "700",
-        width:{width},
+        width: { width },
         "&:hover": {
           backgroundColor: "#f16b3b",
           color: "white",
         },
       }}
+      disabled={disabled}
       type={type}
       onClick={onClick}
     >

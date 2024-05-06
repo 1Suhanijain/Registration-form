@@ -1,7 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-const InputFile = () => {
+const InputFile = ({setFileUploaded}) => {
   const [aadharCardFront, setAadharCardFront] = useState(null);
   const [aadharCardBack, setAadharCardBack] = useState(null);
   const [fileUrlFront, setFileUrlFront] = useState("");
@@ -33,7 +33,7 @@ const InputFile = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-
+          setFileUploaded(true)
           if (Array.isArray(data.filePaths)) {
             setFileUrlFront(baseUrl + data.filePaths[0].replace(/\\/g, "/"));
             setFileUrlBack(baseUrl + data.filePaths[1].replace(/\\/g, "/"));

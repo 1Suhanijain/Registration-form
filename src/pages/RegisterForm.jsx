@@ -32,6 +32,7 @@ const RegisterForm = () => {
   const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState(false);
+  const [fileUploaded, setFileUploaded] = useState(false);
   const methods = useForm();
   const { handleSubmit, register, watch, formState, setValue, getValues } =
     methods;
@@ -103,8 +104,7 @@ const RegisterForm = () => {
     setOpen(true);
   };
 
-  console.log(watch(), "135");
-  console.log(methods.watch(), "136");
+  console.log(fileUploaded, "107");
 
   function PasswordGenerator() {
     const characters =
@@ -133,12 +133,11 @@ const RegisterForm = () => {
     methods.setValue("analytics", analyticsOptions[0].value);
     // methods.setValue("gender" , )
   }, []);
-
+  console.log(fileUploaded);
   useEffect(() => {
     confirmation && setOpen(false);
   }, [open]);
 
-  console.log(permanentAddress, "137");
   return (
     <FormProvider {...methods}>
       <Box
@@ -250,9 +249,11 @@ const RegisterForm = () => {
                     isRequired={true}
                     rules={{ required: "Please select an option" }}
                   />
-                  <InputFile />
+                  <InputFile setFileUploaded={setFileUploaded} />
                   <Button onClick={handleNextButton}>Next</Button>
                   <StyledButton
+                    // disabled={true ? fileUploaded === false : false}
+                    disabled={fileUploaded ? false : true}
                     label={"Save and next"}
                     onClick={handleData}
                     type={"submit"}
@@ -612,7 +613,7 @@ const RegisterForm = () => {
                     "@media screen and (max-width: 768px)": {
                       gridTemplateColumns: "1fr", // On smaller screens, switch to single column
                     },
-                    display: "flex",
+                    // display: "flex",
                     alignItems: "center",
                   }}
                 >
